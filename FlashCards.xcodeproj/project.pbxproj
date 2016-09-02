@@ -8,20 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		51F5D9CF1D6F93BD00624FAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5D9CE1D6F93BC00624FAD /* AppDelegate.swift */; };
-		51F5D9D11D6F93BD00624FAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5D9D01D6F93BD00624FAD /* ViewController.swift */; };
 		51F5D9D41D6F93BD00624FAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51F5D9D21D6F93BD00624FAD /* Main.storyboard */; };
 		51F5D9D61D6F93BD00624FAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51F5D9D51D6F93BD00624FAD /* Assets.xcassets */; };
 		51F5D9D91D6F93BD00624FAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51F5D9D71D6F93BD00624FAD /* LaunchScreen.storyboard */; };
+		51F5D9E41D6F93F500624FAD /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5D9E31D6F93F500624FAD /* Subject.swift */; };
+		51F5D9E61D6F940100624FAD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5D9E51D6F940100624FAD /* Card.swift */; };
+		51F5D9EA1D6F942100624FAD /* SubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5D9E91D6F942100624FAD /* SubjectController.swift */; };
+		51F5D9EC1D6F945800624FAD /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5D9EB1D6F945800624FAD /* CloudKitManager.swift */; };
+		51F5DA131D75EC2C00624FAD /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA121D75EC2C00624FAD /* CloudKitSyncable.swift */; };
+		51F5DA151D75F0A900624FAD /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA141D75F0A900624FAD /* SearchableRecord.swift */; };
+		51F5DA171D75FAA300624FAD /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA161D75FAA300624FAD /* SearchResultsTableViewController.swift */; };
+		51F5DA191D75FAC100624FAD /* SubjectListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA181D75FAC100624FAD /* SubjectListTableViewController.swift */; };
+		51F5DA1B1D75FAF500624FAD /* CardDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA1A1D75FAF500624FAD /* CardDetailTableViewController.swift */; };
+		51F5DA1D1D75FB2300624FAD /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA1C1D75FB2300624FAD /* AddCardViewController.swift */; };
+		51F5DA421D7776E400624FAD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51F5DA411D7776E400624FAD /* CloudKit.framework */; };
+		51F5DA441D78EAE700624FAD /* customDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA431D78EAE700624FAD /* customDetailTableViewCell.swift */; };
+		51F5DA461D78EB0800624FAD /* addCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA451D78EB0800624FAD /* addCardTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		51F5D9CB1D6F93BC00624FAD /* FlashCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F5D9CE1D6F93BC00624FAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		51F5D9D01D6F93BD00624FAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		51F5D9D31D6F93BD00624FAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51F5D9D51D6F93BD00624FAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51F5D9D81D6F93BD00624FAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51F5D9DA1D6F93BD00624FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51F5D9E31D6F93F500624FAD /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		51F5D9E51D6F940100624FAD /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		51F5D9E91D6F942100624FAD /* SubjectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectController.swift; sourceTree = "<group>"; };
+		51F5D9EB1D6F945800624FAD /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		51F5DA121D75EC2C00624FAD /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
+		51F5DA141D75F0A900624FAD /* SearchableRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
+		51F5DA161D75FAA300624FAD /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
+		51F5DA181D75FAC100624FAD /* SubjectListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectListTableViewController.swift; sourceTree = "<group>"; };
+		51F5DA1A1D75FAF500624FAD /* CardDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailTableViewController.swift; sourceTree = "<group>"; };
+		51F5DA1C1D75FB2300624FAD /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
+		51F5DA401D7776DF00624FAD /* FlashCards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FlashCards.entitlements; sourceTree = "<group>"; };
+		51F5DA411D7776E400624FAD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		51F5DA431D78EAE700624FAD /* customDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customDetailTableViewCell.swift; sourceTree = "<group>"; };
+		51F5DA451D78EB0800624FAD /* addCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addCardTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51F5DA421D7776E400624FAD /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +64,7 @@
 		51F5D9C21D6F93BC00624FAD = {
 			isa = PBXGroup;
 			children = (
+				51F5DA411D7776E400624FAD /* CloudKit.framework */,
 				51F5D9CD1D6F93BC00624FAD /* FlashCards */,
 				51F5D9CC1D6F93BC00624FAD /* Products */,
 			);
@@ -54,14 +81,58 @@
 		51F5D9CD1D6F93BC00624FAD /* FlashCards */ = {
 			isa = PBXGroup;
 			children = (
+				51F5DA401D7776DF00624FAD /* FlashCards.entitlements */,
 				51F5D9CE1D6F93BC00624FAD /* AppDelegate.swift */,
-				51F5D9D01D6F93BD00624FAD /* ViewController.swift */,
 				51F5D9D21D6F93BD00624FAD /* Main.storyboard */,
+				51F5D9E21D6F93DC00624FAD /* View */,
+				51F5D9E11D6F93D500624FAD /* Controller */,
+				51F5D9E01D6F93CF00624FAD /* Model */,
+				51F5DA111D75E8A300624FAD /* Protocols */,
 				51F5D9D51D6F93BD00624FAD /* Assets.xcassets */,
 				51F5D9D71D6F93BD00624FAD /* LaunchScreen.storyboard */,
 				51F5D9DA1D6F93BD00624FAD /* Info.plist */,
 			);
 			path = FlashCards;
+			sourceTree = "<group>";
+		};
+		51F5D9E01D6F93CF00624FAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				51F5D9E31D6F93F500624FAD /* Subject.swift */,
+				51F5D9E51D6F940100624FAD /* Card.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		51F5D9E11D6F93D500624FAD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				51F5D9EB1D6F945800624FAD /* CloudKitManager.swift */,
+				51F5D9E91D6F942100624FAD /* SubjectController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		51F5D9E21D6F93DC00624FAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				51F5DA181D75FAC100624FAD /* SubjectListTableViewController.swift */,
+				51F5DA1C1D75FB2300624FAD /* AddCardViewController.swift */,
+				51F5DA1A1D75FAF500624FAD /* CardDetailTableViewController.swift */,
+				51F5DA161D75FAA300624FAD /* SearchResultsTableViewController.swift */,
+				51F5DA451D78EB0800624FAD /* addCardTableViewCell.swift */,
+				51F5DA431D78EAE700624FAD /* customDetailTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		51F5DA111D75E8A300624FAD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				51F5DA121D75EC2C00624FAD /* CloudKitSyncable.swift */,
+				51F5DA141D75F0A900624FAD /* SearchableRecord.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +167,12 @@
 				TargetAttributes = {
 					51F5D9CA1D6F93BC00624FAD = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = M3Z74MK3M2;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -135,8 +212,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51F5D9D11D6F93BD00624FAD /* ViewController.swift in Sources */,
+				51F5DA171D75FAA300624FAD /* SearchResultsTableViewController.swift in Sources */,
+				51F5D9EA1D6F942100624FAD /* SubjectController.swift in Sources */,
+				51F5DA131D75EC2C00624FAD /* CloudKitSyncable.swift in Sources */,
+				51F5D9EC1D6F945800624FAD /* CloudKitManager.swift in Sources */,
+				51F5D9E41D6F93F500624FAD /* Subject.swift in Sources */,
+				51F5DA151D75F0A900624FAD /* SearchableRecord.swift in Sources */,
+				51F5DA1D1D75FB2300624FAD /* AddCardViewController.swift in Sources */,
+				51F5DA461D78EB0800624FAD /* addCardTableViewCell.swift in Sources */,
+				51F5DA441D78EAE700624FAD /* customDetailTableViewCell.swift in Sources */,
+				51F5DA1B1D75FAF500624FAD /* CardDetailTableViewController.swift in Sources */,
 				51F5D9CF1D6F93BD00624FAD /* AppDelegate.swift in Sources */,
+				51F5D9E61D6F940100624FAD /* Card.swift in Sources */,
+				51F5DA191D75FAC100624FAD /* SubjectListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlashCards/FlashCards.entitlements;
 				INFOPLIST_FILE = FlashCards/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.StevenPatterson.FlashCards;
@@ -262,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlashCards/FlashCards.entitlements;
 				INFOPLIST_FILE = FlashCards/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.StevenPatterson.FlashCards;
@@ -288,6 +378,7 @@
 				51F5D9DF1D6F93BD00624FAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
