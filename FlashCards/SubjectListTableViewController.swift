@@ -16,9 +16,13 @@ class SubjectListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reloadTable), name: SubjectController.subjectsChangedNotification, object: nil)
     }
     
+    func reloadTable() {
+        tableView.reloadData()
+    }
    
 
     
@@ -68,16 +72,18 @@ class SubjectListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        return SubjectController.sharedController.subjects.count
     }
     
     
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("subjectList", forIndexPath: indexPath)
         
-        // Configure the cell...
+        let subject = SubjectController.sharedController.subjects[indexPath.row]
+        cell.textLabel?.text = subject.topic
+        cell.detailTextLabel?.text = subject.title
         
         return cell
     }
@@ -129,7 +135,11 @@ class SubjectListTableViewController: UITableViewController {
                 viewController.subject = self.createdSubject
             }
         } else if segue.identifier == "toDetail" {
-            _ = segue.destinationViewController as? CardDetailTableViewController
+            if let viewController = segue.destinationViewController as? CardDetailTableViewController {
+                guard let indexPath = tableView.indexPathForSelectedRow else {return}
+                viewController.subject = SubjectController.sharedController.subjects[indexPath.row]
+            }
+            
             
         }
     }

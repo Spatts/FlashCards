@@ -117,11 +117,11 @@
 			isa = PBXGroup;
 			children = (
 				51F5DA181D75FAC100624FAD /* SubjectListTableViewController.swift */,
-				51F5DA1C1D75FB2300624FAD /* AddCardViewController.swift */,
 				51F5DA1A1D75FAF500624FAD /* CardDetailTableViewController.swift */,
-				51F5DA161D75FAA300624FAD /* SearchResultsTableViewController.swift */,
-				51F5DA451D78EB0800624FAD /* addCardTableViewCell.swift */,
 				51F5DA431D78EAE700624FAD /* customDetailTableViewCell.swift */,
+				51F5DA1C1D75FB2300624FAD /* AddCardViewController.swift */,
+				51F5DA451D78EB0800624FAD /* addCardTableViewCell.swift */,
+				51F5DA161D75FAA300624FAD /* SearchResultsTableViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

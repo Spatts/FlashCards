@@ -16,6 +16,8 @@ class SubjectController {
     
     private let cloudKitManager = CloudKitManager()
     
+    let publicDatabase = CKContainer.defaultContainer().publicCloudDatabase
+    
     var subjects = [Subject]() {
         didSet {
             dispatch_async(dispatch_get_main_queue()) {
@@ -27,6 +29,16 @@ class SubjectController {
     
     var cards: [Card] {
         return subjects.flatMap { $0.cards}
+        
+    }
+    
+    init() {
+        fetchSubject { (error) in
+            if let error = error {
+                print("Error fetching Subjects on StartUP \(error.localizedDescription)")
+            }
+        }
+        
     }
     
     
@@ -68,7 +80,50 @@ class SubjectController {
 //        saveCardToCloudKit(card, subject)
     }
     
-    func fetchRecords() {
+    func fetchSubject(completion: (NSError?)-> Void) {
+        cloudKitManager.fetchRecordsWithType(Subject.RecordType, recordFetchedBlock: nil) { (records, error) in
+            defer {completion(error)}
+            if let error = error {
+                print("Error fetching Subjects: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let records = records else {return}
+            self.subjects = records.flatMap {Subject(cloudKitRecord: $0)}
+            
+        }
+    }
+    
+    
+    
+    func fetchCardsForSubject(subject: Subject, completion: (NSError?)-> Void) {
+        guard let recordID = subject.cloudKitRecordID else { return }
+        
+        let predicate = NSPredicate(format: "subject == %@", recordID)
+        
+        let query = CKQuery(recordType: "Card", predicate: predicate)
+        
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (records, error) in
+            defer {completion(error)}
+            
+            if error != nil {
+                print("There is a problem performing Query: \(error?.localizedDescription)")
+            } else {
+                guard let records = records else { return }
+                
+                for record in records {
+                    guard let card = Card(cloudKitRecord: record) else { return }
+                    subject.cards.append(card)
+                }
+            }
+            
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                let notification = NSNotificationCenter.defaultCenter()
+                notification.postNotificationName(SubjectController.subjectsCardsChangedNotification, object: subject)
+                completion(nil)
+            }
+        }
         
         
     }

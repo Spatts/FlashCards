@@ -18,7 +18,12 @@ class customDetailTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    
+    func updateCardCells(card: Card, subject: Subject?) {
+            self.questionLabel.text = card.question
+            self.answerLabel.text = card.answer
+    }
 
 
 }
