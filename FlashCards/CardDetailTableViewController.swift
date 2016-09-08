@@ -21,12 +21,12 @@ class CardDetailTableViewController: UITableViewController {
             return
         }
         
-        SubjectController.sharedController.fetchCardsForSubject(subject) { (error) in
-            if error != nil {
-                print("unable to fetch cards in detail view")
+        SubjectController.sharedController.fetchCardsForSubject(subject) { (cards, _) in
+            self.cards = cards
+            
+            for card in cards {
+                print(card.question)
             }
-            
-            
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reloadTable), name: SubjectController.subjectsCardsChangedNotification, object: nil)

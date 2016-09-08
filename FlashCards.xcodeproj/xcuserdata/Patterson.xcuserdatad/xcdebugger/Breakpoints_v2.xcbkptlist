@@ -201,11 +201,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashCards/customDetailTableViewCell.swift"
-            timestampString = "495065552.581059"
+            timestampString = "495067993.337319"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "updateCardCells(_:subject:)"
             landmarkType = "5">
          </BreakpointContent>

@@ -96,7 +96,7 @@ class SubjectController {
     
     
     
-    func fetchCardsForSubject(subject: Subject, completion: (NSError?)-> Void) {
+    func fetchCardsForSubject(subject: Subject, completion: (cards: [Card], NSError?)-> Void) {
         guard let recordID = subject.cloudKitRecordID else { return }
         
         let predicate = NSPredicate(format: "subject == %@", recordID)
@@ -104,7 +104,7 @@ class SubjectController {
         let query = CKQuery(recordType: "Card", predicate: predicate)
         
         publicDatabase.performQuery(query, inZoneWithID: nil) { (records, error) in
-            defer {completion(error)}
+            defer {completion(cards: [],error)}
             
             if error != nil {
                 print("There is a problem performing Query: \(error?.localizedDescription)")
@@ -121,7 +121,7 @@ class SubjectController {
             dispatch_async(dispatch_get_main_queue()) {
                 let notification = NSNotificationCenter.defaultCenter()
                 notification.postNotificationName(SubjectController.subjectsCardsChangedNotification, object: subject)
-                completion(nil)
+                completion(cards: self.cards, nil)
             }
         }
         
