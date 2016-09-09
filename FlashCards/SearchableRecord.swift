@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SearchableRecord {
-    
-    func matchesSearchTerm(searchTerm: String) -> Bool
-}
+//protocol SearchableRecord {
+//    
+//    func matchesSearchTerm(searchTerm: String) -> [Subject]
+//}

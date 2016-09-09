@@ -124,10 +124,25 @@ class SubjectController {
                 completion(cards: self.cards, nil)
             }
         }
-        
-        
     }
     
-    
-    
+        
+    func matchesSearchTerm(searchTerm: String) -> [Subject] {
+        let matchingTopic = SubjectController.sharedController.subjects.filter {$0.topic == searchTerm}
+        return matchingTopic
+    }
 }
+
+//extension SubjectController: SearchableRecord {
+//    func matchesSearchTerm(searchTerm: String) -> [Subject] {
+//        let matchingTopic = SubjectController.sharedController.subjects.filter {$0.topic == searchTerm}
+//        return matchingTopic
+//    }
+//    
+//}
+
+
+
+
+
+

@@ -8,15 +8,15 @@
 
 import UIKit
 
-class SubjectListTableViewController: UITableViewController {
+class SubjectListTableViewController: UITableViewController, UISearchResultsUpdating {
     
     var createdSubject: Subject?
     
-    
+    var searchController: UISearchController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupSearchController()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reloadTable), name: SubjectController.subjectsChangedNotification, object: nil)
     }
     
@@ -88,43 +88,30 @@ class SubjectListTableViewController: UITableViewController {
         return cell
     }
     
+     //Mark: - SearchController
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+    func setupSearchController() {
+        let resultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchResultsTableViewController")
+        searchController = UISearchController(searchResultsController: resultsController)
+        guard let searchController = searchController else {return}
+        
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.sizeToFit()
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.searchBar.placeholder = "Search Topic"
+        tableView.tableHeaderView = searchController.searchBar
+        
+    }
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-     if editingStyle == .Delete {
-     // Delete the row from the data source
-     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-     } else if editingStyle == .Insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        guard let searchTerm = searchController.searchBar.text?.lowercaseString,
+            resultsController = searchController.searchResultsController as? SearchResultsTableViewController else {return}
+        
+        resultsController.resultsArray = SubjectController.sharedController.matchesSearchTerm(searchTerm.lowercaseString)
+        resultsController.tableView.reloadData()
+    }
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-   
+
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
