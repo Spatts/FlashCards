@@ -16,8 +16,8 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSearchController()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reloadTable), name: SubjectController.subjectsChangedNotification, object: nil)
+        setupSearchController()
     }
     
     func reloadTable() {

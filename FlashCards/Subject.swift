@@ -26,15 +26,6 @@ class Subject: CloudKitSyncable {
         self.cards = cards
     }
     
-//    var cloudKitRecord: CKRecord {
-//        let recordID = CKRecordID(recordName: NSUUID().UUIDString)
-//        let record = CKRecord(recordType: Subject.recordType, recordID: recordID)
-//        
-//        record[Subject.kTopic] = topic
-//        record[Subject.kTitle] = title
-//        return record
-//    }
-    
     convenience required init?(cloudKitRecord: CKRecord) {
         guard let topic = cloudKitRecord[Subject.kTopic] as? String,
         title = cloudKitRecord[Subject.kTitle] as? String where cloudKitRecord.recordType == Subject.RecordType
@@ -61,4 +52,13 @@ extension CKRecord {
         self[Subject.kTopic] = subject.topic
         self[Subject.kTitle] = subject.title
     }
+    
+    //    var cloudKitRecord: CKRecord {
+    //        let recordID = CKRecordID(recordName: NSUUID().UUIDString)
+    //        let record = CKRecord(recordType: Subject.recordType, recordID: recordID)
+    //
+    //        record[Subject.kTopic] = topic
+    //        record[Subject.kTitle] = title
+    //        return record
+    //    }
 }

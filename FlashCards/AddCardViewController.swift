@@ -23,46 +23,56 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     var subject: Subject?
     
+    var cards: [Card] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         subjectLabel.text = subject?.topic
         titleLabel.text = subject?.title
         
-        //        let subject = Subject(topic: "foo", title: "bar")
-        //
-        //        SubjectController.sharedController.saveSubject(subject) { _ in }
+        questionTextView.text = "Write a Question/Term"
+        questionTextView.textColor = UIColor.lightGrayColor()
+        answerTextView.text = "Write an Answer/Definition"
+        answerTextView.textColor = UIColor.lightGrayColor()
         
-        // later...
-        
-//        guard let subject = subject else {return}
-//        let card = Card(question: "hi", answer: "you", subject: subject)
-//        SubjectController.sharedController.saveCardToCK(card, subject: subject) { (error, card) in
-//            
-//        }
-        
-        
-        // Do any additional setup after loading the view.
     }
+    
+    func textViewDidBeginEditing() {
+        if questionTextView.textColor == UIColor.lightGrayColor() {
+            questionTextView.text = nil
+            questionTextView.textColor = UIColor.blackColor()
+        }
+        
+        if answerTextView.textColor == UIColor.lightGrayColor() {
+            answerTextView.text = nil
+            answerTextView.textColor = UIColor.blackColor()
+        }
+    }
+    
+    
     
     
     @IBAction func addCardButtonTapped(sender: AnyObject) {
         
         guard let question = questionTextView.text, answer = answerTextView.text else { return }
         
-        print(question)
-        
         let card = Card(question: question, answer: answer, subject: subject)
         SubjectController.sharedController.saveCardToCK(card, subject: subject)
-        questionTextView.text = ""
-        answerTextView.text = ""
+        self.cards.append(card)
+        questionTextView.text = "Write a Question/Term"
+        questionTextView.textColor = UIColor.lightGrayColor()
+        answerTextView.text = "Write an Answer/Definition"
+        answerTextView.textColor = UIColor.lightGrayColor()
         self.tableView.reloadData()
+        
     }
     
     
     @IBAction func doneButtonTapped(sender: AnyObject) {
-        
-        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.performSegueWithIdentifier("toDetailFromCreate", sender: self)
+        })
     }
     
     
@@ -82,14 +92,15 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
 
-    /*
+    
      // MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toDetailFromCreate" {
+            if let viewController = segue.destinationViewController as? CardDetailTableViewController {
+                viewController.subject = self.subject
+//                viewController.cards = self.cards
+            }
+        }
+    }
 }
