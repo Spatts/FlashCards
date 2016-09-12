@@ -24,6 +24,9 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
         tableView.reloadData()
     }
    
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
+    }
 
     
     @IBAction func addTapped(sender: AnyObject) {
@@ -50,6 +53,7 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
                 title = textfield2?.text else {return}
             let subject = Subject(topic: topic, title: title)
             self.createdSubject = subject
+            SubjectController.sharedController.subjects.append(subject)
             SubjectController.sharedController.saveSubjectToCK(subject) { (error) in
                 if error != true {
                     
@@ -124,7 +128,9 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
         } else if segue.identifier == "toDetail" {
             if let viewController = segue.destinationViewController as? CardDetailTableViewController {
                 guard let indexPath = tableView.indexPathForSelectedRow else {return}
-                viewController.subject = SubjectController.sharedController.subjects[indexPath.row]
+                let subject = SubjectController.sharedController.subjects[indexPath.row]
+                print(subject.cards)
+                viewController.subject = subject
             }
             
             

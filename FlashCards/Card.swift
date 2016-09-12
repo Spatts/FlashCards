@@ -26,7 +26,7 @@ class Card: CloudKitSyncable {
         self.answer = answer
         self.question = question
         self.subject = subject
-        subject?.cards.append(self)
+//        subject?.cards.append(self)
     }
     
 

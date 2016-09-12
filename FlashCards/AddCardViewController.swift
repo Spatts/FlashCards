@@ -8,11 +8,8 @@
 
 import UIKit
 
-class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate{
     
-    @IBOutlet weak var subjectLabel: UILabel!
-    
-    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var questionTextView: UITextView!
     
@@ -23,13 +20,25 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     var subject: Subject?
     
-    var cards: [Card] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        questionTextView.delegate = self
+        answerTextView.delegate = self
+//        subjectTopicItem.title = subject?.topic
+//        navigationItem.title = subject?.title
         
-        subjectLabel.text = subject?.topic
-        titleLabel.text = subject?.title
+        questionTextView.contentOffset = CGPointZero
+        answerTextView.contentOffset = CGPointZero
+
+        questionTextView.layer.borderColor = UIColor.blackColor().CGColor
+        answerTextView.layer.borderColor = UIColor.blackColor().CGColor
+        
+        questionTextView.layer.borderWidth = 0.5
+        answerTextView.layer.borderWidth = 0.5
+        
+        questionTextView.layer.cornerRadius = 10
+        answerTextView.layer.cornerRadius = 10
         
         questionTextView.text = "Write a Question/Term"
         questionTextView.textColor = UIColor.lightGrayColor()
@@ -38,19 +47,20 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    func textViewDidBeginEditing() {
-        if questionTextView.textColor == UIColor.lightGrayColor() {
-            questionTextView.text = nil
-            questionTextView.textColor = UIColor.blackColor()
-        }
+    func textViewDidBeginEditing(textView: UITextView) {
         
-        if answerTextView.textColor == UIColor.lightGrayColor() {
-            answerTextView.text = nil
-            answerTextView.textColor = UIColor.blackColor()
+        if textView == questionTextView {
+            if questionTextView.textColor == UIColor.lightGrayColor() {
+                questionTextView.text = ""
+                questionTextView.textColor = UIColor.blackColor()
+            }
+        } else if textView == answerTextView {
+            if answerTextView.textColor == UIColor.lightGrayColor() {
+                answerTextView.text = ""
+                answerTextView.textColor = UIColor.blackColor()
+            }
         }
     }
-    
-    
     
     
     @IBAction func addCardButtonTapped(sender: AnyObject) {
@@ -59,7 +69,6 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let card = Card(question: question, answer: answer, subject: subject)
         SubjectController.sharedController.saveCardToCK(card, subject: subject)
-        self.cards.append(card)
         questionTextView.text = "Write a Question/Term"
         questionTextView.textColor = UIColor.lightGrayColor()
         answerTextView.text = "Write an Answer/Definition"
@@ -70,9 +79,11 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     @IBAction func doneButtonTapped(sender: AnyObject) {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.performSegueWithIdentifier("toDetailFromCreate", sender: self)
-        })
+//        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                self.performSegueWithIdentifier("toDetailFromCreate", sender: self)
+//        })
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
     

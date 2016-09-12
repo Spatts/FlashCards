@@ -29,7 +29,6 @@ class SubjectController {
     
     var cards: [Card] {
         return subjects.flatMap { $0.cards}
-        
     }
     
     init() {
@@ -60,10 +59,9 @@ class SubjectController {
         // let record = card.cloudKitRecord
         guard let subject = subject else {return}
         
-        subject.cards.append(card)
+//        subject.cards.append(card)
         
         cloudKitManager.saveRecord(CKRecord(card)) { (record, error) in
-            defer {completion?(error: error, card: nil)}
             if let error = error {
                 print("Error saving new Card to CloudKit: \(error.localizedDescription)")
             }
@@ -71,9 +69,9 @@ class SubjectController {
         }
         
         dispatch_async(dispatch_get_main_queue()) {
+            completion?(error: nil, card: card)
             let notification = NSNotificationCenter.defaultCenter()
             notification.postNotificationName(SubjectController.subjectsCardsChangedNotification, object: subject)
-            completion?(error: nil, card: card)
         }
 
         
@@ -104,7 +102,7 @@ class SubjectController {
         let query = CKQuery(recordType: "Card", predicate: predicate)
         
         publicDatabase.performQuery(query, inZoneWithID: nil) { (records, error) in
-            defer {completion(cards: [],error)}
+            //defer {completion(cards: [],error)}
             
             if error != nil {
                 print("There is a problem performing Query: \(error?.localizedDescription)")
@@ -114,14 +112,16 @@ class SubjectController {
                 for record in records {
                     guard let card = Card(cloudKitRecord: record) else { return }
                     subject.cards.append(card)
+                    print(card.question)
                 }
             }
             
             
             dispatch_async(dispatch_get_main_queue()) {
+                completion(cards: self.cards, nil)
                 let notification = NSNotificationCenter.defaultCenter()
                 notification.postNotificationName(SubjectController.subjectsCardsChangedNotification, object: subject)
-                completion(cards: self.cards, nil)
+                
             }
         }
     }
