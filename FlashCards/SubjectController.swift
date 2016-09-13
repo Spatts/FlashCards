@@ -101,9 +101,7 @@ class SubjectController {
         
         let query = CKQuery(recordType: "Card", predicate: predicate)
         
-        publicDatabase.performQuery(query, inZoneWithID: nil) { (records, error) in
-            //defer {completion(cards: [],error)}
-            
+        publicDatabase.performQuery(query, inZoneWithID: nil) { (records, error) in            
             if error != nil {
                 print("There is a problem performing Query: \(error?.localizedDescription)")
             } else {
@@ -125,21 +123,15 @@ class SubjectController {
             }
         }
     }
-    
+
         
     func matchesSearchTerm(searchTerm: String) -> [Subject] {
-        let matchingTopic = SubjectController.sharedController.subjects.filter {$0.topic == searchTerm}
+        let matchingTopic = SubjectController.sharedController.subjects.filter {$0.topic.lowercaseString.containsString(searchTerm.lowercaseString)}
         return matchingTopic
     }
 }
 
-//extension SubjectController: SearchableRecord {
-//    func matchesSearchTerm(searchTerm: String) -> [Subject] {
-//        let matchingTopic = SubjectController.sharedController.subjects.filter {$0.topic == searchTerm}
-//        return matchingTopic
-//    }
-//    
-//}
+
 
 
 

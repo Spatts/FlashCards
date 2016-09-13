@@ -26,16 +26,20 @@ class SearchResultsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("resultsCell", forIndexPath: indexPath)
-        let result = resultsArray[indexPath.row] as? Subject
+        let result = resultsArray[indexPath.row]
         
-        cell.textLabel?.text = result?.topic
-        cell.detailTextLabel?.text = result?.title
+        cell.textLabel?.text = result.topic
+        cell.detailTextLabel?.text = result.title
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
+        print(self.presentingViewController)
+        let result = resultsArray[indexPath.row]
+        let detailVC = CardDetailTableViewController()
+        detailVC.subject = result
         self.presentingViewController?.performSegueWithIdentifier("toDetail", sender: cell)
     }
 

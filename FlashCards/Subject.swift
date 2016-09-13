@@ -37,13 +37,6 @@ class Subject: CloudKitSyncable {
     }
 }
 
-//extension Subject: SearchableRecord {
-//    func matchesSearchTerm(searchTerm: String) -> [Subject] {
-//        return topic.containsString(searchTerm)
-//    }
-//    
-//}
-
 extension CKRecord {
     convenience init(_ subject: Subject) {
         let recordID = CKRecordID(recordName: NSUUID().UUIDString)

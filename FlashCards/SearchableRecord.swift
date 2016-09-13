@@ -12,3 +12,18 @@ import Foundation
 //    
 //    func matchesSearchTerm(searchTerm: String) -> [Subject]
 //}
+
+//extension Subject: SearchableRecord {
+//    func matchesSearchTerm(searchTerm: String) -> [Subject] {
+//        return topic.containsString(searchTerm)
+//    }
+//
+//}
+
+//extension SubjectController: SearchableRecord {
+//    func matchesSearchTerm(searchTerm: String) -> [Subject] {
+//        let matchingTopic = SubjectController.sharedController.subjects.filter {$0.topic == searchTerm}
+//        return matchingTopic
+//    }
+//
+//}

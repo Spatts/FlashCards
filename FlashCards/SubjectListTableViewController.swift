@@ -108,10 +108,10 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        guard let searchTerm = searchController.searchBar.text?.lowercaseString,
+        guard let searchTerm = searchController.searchBar.text,
             resultsController = searchController.searchResultsController as? SearchResultsTableViewController else {return}
         
-        resultsController.resultsArray = SubjectController.sharedController.matchesSearchTerm(searchTerm.lowercaseString)
+        resultsController.resultsArray = SubjectController.sharedController.matchesSearchTerm(searchTerm)
         resultsController.tableView.reloadData()
     }
     
@@ -127,7 +127,9 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
             }
         } else if segue.identifier == "toDetail" {
             if let viewController = segue.destinationViewController as? CardDetailTableViewController {
-                guard let indexPath = tableView.indexPathForSelectedRow else {return}
+                guard let indexPath = tableView.indexPathForSelectedRow else {
+                    print("IndexPath Failed")
+                    return}
                 let subject = SubjectController.sharedController.subjects[indexPath.row]
                 print(subject.cards)
                 viewController.subject = subject

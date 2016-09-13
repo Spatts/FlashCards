@@ -53,7 +53,7 @@
         <!--Subject List Table View Controller-->
         <scene sceneID="DGi-te-P5s">
             <objects>
-                <tableViewController id="v1N-Yt-UBe" customClass="SubjectListTableViewController" customModule="FlashCards" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController definesPresentationContext="YES" id="v1N-Yt-UBe" customClass="SubjectListTableViewController" customModule="FlashCards" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uPX-20-cdD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

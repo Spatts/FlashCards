@@ -12,7 +12,6 @@ class CardDetailTableViewController: UITableViewController {
     
     var subject: Subject?
     
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
