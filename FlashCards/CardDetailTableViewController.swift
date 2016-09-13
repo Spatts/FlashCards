@@ -45,15 +45,26 @@ class CardDetailTableViewController: UITableViewController {
         return subject.cards.count
     }
     
+    
+    
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        
+                
+        let additionalSeparatorThickness = CGFloat(12)
+        let additionalSeparator = UIView(frame: CGRectMake(0,
+            cell.frame.size.height - additionalSeparatorThickness,
+            cell.frame.size.width,
+            additionalSeparatorThickness))
+        additionalSeparator.backgroundColor = UIColor(red: 0.906, green: 0.906, blue: 0.906, alpha: 1.00)
+        cell.addSubview(additionalSeparator)
         
     }
     
-    //    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    //        return 420
-    //    }
+        override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+            let frameHeight = tableView.frame.size.height - 18
+            
+            
+            return frameHeight
+        }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

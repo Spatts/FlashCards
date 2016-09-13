@@ -69,6 +69,7 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let card = Card(question: question, answer: answer, subject: subject)
         SubjectController.sharedController.saveCardToCK(card, subject: subject)
+        print(card.question)
         questionTextView.text = "Write a Question/Term"
         questionTextView.textColor = UIColor.lightGrayColor()
         answerTextView.text = "Write an Answer/Definition"

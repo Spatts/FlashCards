@@ -36,11 +36,14 @@ class SearchResultsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
+    
         print(self.presentingViewController)
         let result = resultsArray[indexPath.row]
         let detailVC = CardDetailTableViewController()
         detailVC.subject = result
         self.presentingViewController?.performSegueWithIdentifier("toDetail", sender: cell)
     }
+    
+    
 
 }

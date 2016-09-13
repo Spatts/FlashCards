@@ -12,6 +12,8 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
     
     var createdSubject: Subject?
     
+    var arrayFromSearch: [Subject] = []
+    
     var searchController: UISearchController?
     
     override func viewDidLoad() {
@@ -83,7 +85,7 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("subjectList", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("subjectList", forIndexPath: indexPath) 
         
         let subject = SubjectController.sharedController.subjects[indexPath.row]
         cell.textLabel?.text = subject.topic
