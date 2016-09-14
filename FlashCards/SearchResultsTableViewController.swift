@@ -39,8 +39,10 @@ class SearchResultsTableViewController: UITableViewController {
     
         print(self.presentingViewController)
         let result = resultsArray[indexPath.row]
-        let detailVC = CardDetailTableViewController()
-        detailVC.subject = result
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let dvc = storyboard.instantiateViewControllerWithIdentifier("CardDetailTableViewController") as? CardDetailTableViewController else { return }
+        dvc.subject = result
         self.presentingViewController?.performSegueWithIdentifier("toDetail", sender: cell)
     }
     

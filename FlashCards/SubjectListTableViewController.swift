@@ -133,7 +133,6 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
                     print("IndexPath Failed")
                     return}
                 let subject = SubjectController.sharedController.subjects[indexPath.row]
-                print(subject.cards)
                 viewController.subject = subject
             }
             

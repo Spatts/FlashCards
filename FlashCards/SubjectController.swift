@@ -55,11 +55,11 @@ class SubjectController {
         }
     }
     
-    func saveCardToCK(card: Card, subject: Subject?, completion: ((error: NSError?, card: Card?)-> Void)? = nil) {
+    func saveCardToCK(card: Card, subject: Subject, completion: ((error: NSError?, card: Card?)-> Void)? = nil) {
         // let record = card.cloudKitRecord
-        guard let subject = subject else {return}
+//        guard let subject = subject else {return}
         
-//        subject.cards.append(card)
+        subject.cards.append(card)
         
         cloudKitManager.saveRecord(CKRecord(card)) { (record, error) in
             if let error = error {

@@ -9,7 +9,7 @@
 import UIKit
 
 class customDetailTableViewCell: UITableViewCell {
-
+        
     @IBOutlet weak var questionLabel: UILabel!
     
     @IBOutlet weak var answerLabel: UILabel!

@@ -19,7 +19,7 @@ class addCardTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func updateNewCardCell(card: Card) {
+    func updateNewCardCell(card: Card, subject: Subject?) {
         questionLabel.text = card.question
         answerLabel.text = card.answer
     }

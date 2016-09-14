@@ -25,25 +25,7 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         questionTextView.delegate = self
         answerTextView.delegate = self
-//        subjectTopicItem.title = subject?.topic
-//        navigationItem.title = subject?.title
-        
-        questionTextView.contentOffset = CGPointZero
-        answerTextView.contentOffset = CGPointZero
-
-        questionTextView.layer.borderColor = UIColor.blackColor().CGColor
-        answerTextView.layer.borderColor = UIColor.blackColor().CGColor
-        
-        questionTextView.layer.borderWidth = 0.5
-        answerTextView.layer.borderWidth = 0.5
-        
-        questionTextView.layer.cornerRadius = 10
-        answerTextView.layer.cornerRadius = 10
-        
-        questionTextView.text = "Write a Question/Term"
-        questionTextView.textColor = UIColor.lightGrayColor()
-        answerTextView.text = "Write an Answer/Definition"
-        answerTextView.textColor = UIColor.lightGrayColor()
+        betterTextViews()
         
     }
     
@@ -64,55 +46,65 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     @IBAction func addCardButtonTapped(sender: AnyObject) {
-        
-        guard let question = questionTextView.text, answer = answerTextView.text else { return }
+        guard let subject = subject else {return}
+        guard let question = questionTextView.text,
+            answer = answerTextView.text else { return }
         
         let card = Card(question: question, answer: answer, subject: subject)
         SubjectController.sharedController.saveCardToCK(card, subject: subject)
         print(card.question)
-        questionTextView.text = "Write a Question/Term"
-        questionTextView.textColor = UIColor.lightGrayColor()
-        answerTextView.text = "Write an Answer/Definition"
-        answerTextView.textColor = UIColor.lightGrayColor()
-        self.tableView.reloadData()
+        reloadingTextViews()
         
     }
     
     
     @IBAction func doneButtonTapped(sender: AnyObject) {
-//        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                self.performSegueWithIdentifier("toDetailFromCreate", sender: self)
-//        })
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SubjectController.sharedController.cards.count
+        guard let subject = subject else { return 0 }
+        return subject.cards.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("newCardCell", forIndexPath: indexPath) as? addCardTableViewCell else {return addCardTableViewCell()}
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("newCardCell", forIndexPath: indexPath) as? addCardTableViewCell, subject = subject else {return addCardTableViewCell()}
         
-        let card = SubjectController.sharedController.cards[indexPath.row]
-        cell.updateNewCardCell(card)
+        let card = subject.cards[indexPath.row]
+        cell.updateNewCardCell(card, subject: subject)
         
         return cell
     }
     
+    func reloadingTextViews() {
+        questionTextView.text = "Write a Question/Term"
+        questionTextView.textColor = UIColor.lightGrayColor()
+        answerTextView.text = "Write an Answer/Definition"
+        answerTextView.textColor = UIColor.lightGrayColor()
+        self.tableView.reloadData()
+    }
     
+    func betterTextViews() {
+        questionTextView.contentOffset = CGPointZero
+        answerTextView.contentOffset = CGPointZero
+        
+        questionTextView.layer.borderColor = UIColor.blackColor().CGColor
+        answerTextView.layer.borderColor = UIColor.blackColor().CGColor
+        
+        questionTextView.layer.borderWidth = 0.5
+        answerTextView.layer.borderWidth = 0.5
+        
+        questionTextView.layer.cornerRadius = 10
+        answerTextView.layer.cornerRadius = 10
+        
+        questionTextView.text = "Write a Question/Term"
+        questionTextView.textColor = UIColor.lightGrayColor()
+        answerTextView.text = "Write an Answer/Definition"
+        answerTextView.textColor = UIColor.lightGrayColor()
+    }
 
     
-     // MARK: - Navigation
-     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "toDetailFromCreate" {
-            if let viewController = segue.destinationViewController as? CardDetailTableViewController {
-                viewController.subject = self.subject
-//                viewController.cards = self.cards
-            }
-        }
-    }
 }
