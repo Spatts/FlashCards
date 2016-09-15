@@ -274,7 +274,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="420"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" tableViewCell="v1F-aJ-bis" id="vMe-9p-qIZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="419.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Be6-t6-n8i">
@@ -309,7 +309,7 @@
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Xt-7S-1ts">
                                             <rect key="frame" x="0.0" y="212" width="600" height="208"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pL6-kh-PdM">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="208"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="209"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </view>
                                             <blurEffect style="light"/>

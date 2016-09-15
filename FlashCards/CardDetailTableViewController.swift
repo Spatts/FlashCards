@@ -10,23 +10,18 @@ import UIKit
 
 class CardDetailTableViewController: UITableViewController{
     
-    var subject: Subject? {
-        didSet {
-            print(subject?.title)
-        }
-    }
+    var subject: Subject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let subject = subject else {
-            return
-        }
+        guard let subject = subject else { return }
+        
+        title = subject.title
+        navigationItem.prompt = subject.topic
         
         SubjectController.sharedController.fetchCardsForSubject(subject) { (cards, _) in
-//            self.subject?.cards = cards
-            print("Here are all the cards on \(#function) line \(#line): \n\(subject.cards.count)")
-//            self.reloadTable()
+//            print("Here are all the cards on \(#function) line \(#line): \n\(subject.cards.count)")
             
         }
         
@@ -42,8 +37,8 @@ class CardDetailTableViewController: UITableViewController{
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print("TVC count = \(subject?.cards.count)")
-        print("Subjects count = \(self.subject?.cards.count)")
+//        print("TVC count = \(subject?.cards.count)")
+//        print("Subjects count = \(self.subject?.cards.count)")
         guard let subject = subject else { return 0 }
         return subject.cards.count
     }

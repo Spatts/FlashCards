@@ -129,10 +129,24 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
             }
         } else if segue.identifier == "toDetail" {
             if let viewController = segue.destinationViewController as? CardDetailTableViewController {
-                guard let indexPath = tableView.indexPathForSelectedRow else {
-                    print("IndexPath Failed")
-                    return}
-                let subject = SubjectController.sharedController.subjects[indexPath.row]
+                let subject: Subject
+                // Alternate approach
+                guard let cell = sender as? UITableViewCell else { return }
+                if let resultsController = searchController?.searchResultsController as? SearchResultsTableViewController,
+                    indexPath = resultsController.tableView.indexPathForCell(cell) {
+                    subject = resultsController.resultsArray[indexPath.row]
+                } else {
+                    guard let indexPath = tableView.indexPathForCell(cell) else { return }
+                    subject = SubjectController.sharedController.subjects[indexPath.row]
+                }
+                
+//                if let resultsController = searchController?.searchResultsController as? SearchResultsTableViewController,
+//                    indexPath = resultsController.tableView.indexPathForSelectedRow {
+//                    subject = resultsController.resultsArray[indexPath.row]
+//                } else {
+//                    guard let indexPath = tableView.indexPathForSelectedRow else { return }
+//                    subject = SubjectController.sharedController.subjects[indexPath.row]
+//                }
                 viewController.subject = subject
             }
             
