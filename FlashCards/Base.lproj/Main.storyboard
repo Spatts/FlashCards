@@ -296,26 +296,13 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="White Image" translatesAutoresizingMaskIntoConstraints="NO" id="kS7-Tw-3Qw">
-                                            <rect key="frame" x="0.0" y="214" width="600" height="206"/>
-                                            <gestureRecognizers/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="206" id="6Io-mH-UBF"/>
-                                            </constraints>
-                                            <connections>
-                                                <outletCollection property="gestureRecognizers" destination="77J-N0-0hn" appends="YES" id="Jp0-Wm-4sx"/>
-                                            </connections>
-                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.89883814100000003" green="0.89883814100000003" blue="0.89883814100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="kS7-Tw-3Qw" firstAttribute="trailing" secondItem="Be6-t6-n8i" secondAttribute="trailing" id="FM7-mQ-264"/>
                                         <constraint firstItem="Be6-t6-n8i" firstAttribute="leading" secondItem="vMe-9p-qIZ" secondAttribute="leading" id="JEp-tI-w8T"/>
                                         <constraint firstItem="Be6-t6-n8i" firstAttribute="top" secondItem="vMe-9p-qIZ" secondAttribute="top" id="Kdb-cH-wl1"/>
-                                        <constraint firstItem="kS7-Tw-3Qw" firstAttribute="leading" secondItem="Be6-t6-n8i" secondAttribute="leading" id="j6y-Lb-ELV"/>
                                         <constraint firstAttribute="bottom" secondItem="Be6-t6-n8i" secondAttribute="bottom" id="vG9-Bz-TZO"/>
                                         <constraint firstAttribute="trailing" secondItem="Be6-t6-n8i" secondAttribute="trailing" id="xps-Og-6aQ"/>
-                                        <constraint firstItem="kS7-Tw-3Qw" firstAttribute="bottom" secondItem="Be6-t6-n8i" secondAttribute="bottom" id="zq3-QV-GDZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -330,9 +317,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="dmg-Kg-lkE"/>
-                    <connections>
-                        <outlet property="textCoverImage" destination="kS7-Tw-3Qw" id="GdX-Qz-zE1"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBb-zx-LYA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="77J-N0-0hn">
@@ -362,7 +346,4 @@
             <point key="canvasLocation" x="-109" y="463"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="White Image" width="425" height="283"/>
-    </resources>
 </document>

@@ -80,12 +80,12 @@ class CardDetailTableViewController: UITableViewController {
     }
     
     
-    @IBAction func imageTapped(sender: AnyObject) {
-        
-        
-        
-    }
+    func bluredCell() {
     
+    
+    
+    
+    }
     
     
 }
