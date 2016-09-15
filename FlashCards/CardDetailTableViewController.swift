@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardDetailTableViewController: UITableViewController {    
+class CardDetailTableViewController: UITableViewController{
     
     var subject: Subject? {
         didSet {
@@ -52,11 +52,18 @@ class CardDetailTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath) as? customDetailTableViewCell else {return UITableViewCell()}
         
         guard let subject = subject else { return UITableViewCell() }
-        
         let card = subject.cards[indexPath.row]
         print("Hey here is the question: \(card.question)")
         cell.updateCardCells(card, subject: subject)
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if tableView.indexPathForSelectedRow == indexPath {
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            return nil
+        }
+        return indexPath
     }
     
     
@@ -77,6 +84,12 @@ class CardDetailTableViewController: UITableViewController {
         
         
         return frameHeight
+    }
+    
+    func cellButtonTapped(tapped: Bool) {
+        if tapped == true {
+            print("Remove the blur")
+        }
     }
     
     
