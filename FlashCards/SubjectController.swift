@@ -107,11 +107,10 @@ class SubjectController {
             } else {
                 guard let records = records else { return }
                 
-                for record in records {
-                    guard let card = Card(cloudKitRecord: record) else { return }
-                    subject.cards.append(card)
-                    print(card.question)
-                }
+                
+                let cards = records.flatMap({Card(cloudKitRecord: $0)})
+                subject.cards = cards
+
             }
             
             

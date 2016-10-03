@@ -48,7 +48,7 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func addCardButtonTapped(sender: AnyObject) {
         guard let subject = subject else {return}
         guard let question = questionTextView.text,
-            answer = answerTextView.text else { return }
+        let answer = answerTextView.text else { return }
         
         let card = Card(question: question, answer: answer, subject: subject)
         SubjectController.sharedController.saveCardToCK(card, subject: subject)

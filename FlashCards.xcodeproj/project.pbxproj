@@ -16,7 +16,6 @@
 		51F5D9EA1D6F942100624FAD /* SubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5D9E91D6F942100624FAD /* SubjectController.swift */; };
 		51F5D9EC1D6F945800624FAD /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5D9EB1D6F945800624FAD /* CloudKitManager.swift */; };
 		51F5DA131D75EC2C00624FAD /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA121D75EC2C00624FAD /* CloudKitSyncable.swift */; };
-		51F5DA151D75F0A900624FAD /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA141D75F0A900624FAD /* SearchableRecord.swift */; };
 		51F5DA171D75FAA300624FAD /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA161D75FAA300624FAD /* SearchResultsTableViewController.swift */; };
 		51F5DA191D75FAC100624FAD /* SubjectListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA181D75FAC100624FAD /* SubjectListTableViewController.swift */; };
 		51F5DA1B1D75FAF500624FAD /* CardDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5DA1A1D75FAF500624FAD /* CardDetailTableViewController.swift */; };
@@ -38,7 +37,6 @@
 		51F5D9E91D6F942100624FAD /* SubjectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectController.swift; sourceTree = "<group>"; };
 		51F5D9EB1D6F945800624FAD /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		51F5DA121D75EC2C00624FAD /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
-		51F5DA141D75F0A900624FAD /* SearchableRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 		51F5DA161D75FAA300624FAD /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		51F5DA181D75FAC100624FAD /* SubjectListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectListTableViewController.swift; sourceTree = "<group>"; };
 		51F5DA1A1D75FAF500624FAD /* CardDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				51F5DA121D75EC2C00624FAD /* CloudKitSyncable.swift */,
-				51F5DA141D75F0A900624FAD /* SearchableRecord.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -168,6 +165,7 @@
 					51F5D9CA1D6F93BC00624FAD = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = M3Z74MK3M2;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -217,7 +215,6 @@
 				51F5DA131D75EC2C00624FAD /* CloudKitSyncable.swift in Sources */,
 				51F5D9EC1D6F945800624FAD /* CloudKitManager.swift in Sources */,
 				51F5D9E41D6F93F500624FAD /* Subject.swift in Sources */,
-				51F5DA151D75F0A900624FAD /* SearchableRecord.swift in Sources */,
 				51F5DA1D1D75FB2300624FAD /* AddCardViewController.swift in Sources */,
 				51F5DA461D78EB0800624FAD /* addCardTableViewCell.swift in Sources */,
 				51F5DA441D78EAE700624FAD /* customDetailTableViewCell.swift in Sources */,
@@ -346,6 +343,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.StevenPatterson.FlashCards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -360,6 +358,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.StevenPatterson.FlashCards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

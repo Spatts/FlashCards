@@ -20,6 +20,8 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reloadTable), name: SubjectController.subjectsChangedNotification, object: nil)
         setupSearchController()
+        
+        
     }
     
     func reloadTable() {
@@ -131,22 +133,22 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
             if let viewController = segue.destinationViewController as? CardDetailTableViewController {
                 let subject: Subject
                 // Alternate approach
-                guard let cell = sender as? UITableViewCell else { return }
-                if let resultsController = searchController?.searchResultsController as? SearchResultsTableViewController,
-                    indexPath = resultsController.tableView.indexPathForCell(cell) {
-                    subject = resultsController.resultsArray[indexPath.row]
-                } else {
-                    guard let indexPath = tableView.indexPathForCell(cell) else { return }
-                    subject = SubjectController.sharedController.subjects[indexPath.row]
-                }
-                
+//                guard let cell = sender as? UITableViewCell else { return }
 //                if let resultsController = searchController?.searchResultsController as? SearchResultsTableViewController,
-//                    indexPath = resultsController.tableView.indexPathForSelectedRow {
+//                    indexPath = resultsController.tableView.indexPathForCell(cell) {
 //                    subject = resultsController.resultsArray[indexPath.row]
 //                } else {
-//                    guard let indexPath = tableView.indexPathForSelectedRow else { return }
+//                    guard let indexPath = tableView.indexPathForCell(cell) else { return }
 //                    subject = SubjectController.sharedController.subjects[indexPath.row]
 //                }
+                
+                if let resultsController = searchController?.searchResultsController as? SearchResultsTableViewController,
+                    indexPath = resultsController.tableView.indexPathForSelectedRow {
+                    subject = resultsController.resultsArray[indexPath.row]
+                } else {
+                    guard let indexPath = tableView.indexPathForSelectedRow else { return }
+                    subject = SubjectController.sharedController.subjects[indexPath.row]
+                }
                 viewController.subject = subject
             }
             
