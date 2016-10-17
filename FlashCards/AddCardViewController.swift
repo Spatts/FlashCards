@@ -10,6 +10,7 @@ import UIKit
 
 class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate{
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     @IBOutlet weak var questionTextView: UITextView!
     
@@ -26,7 +27,6 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
         questionTextView.delegate = self
         answerTextView.delegate = self
         betterTextViews()
-        
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
@@ -46,7 +46,10 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     @IBAction func addCardButtonTapped(sender: AnyObject) {
-        guard let subject = subject else {return}
+        guard let subject = subject
+            else {
+                print("this is you subjects Title Crazy!! \(self.subject?.title)")
+                return}
         guard let question = questionTextView.text,
         let answer = answerTextView.text else { return }
         
@@ -78,6 +81,8 @@ class AddCardViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return cell
     }
+    
+
     
     func reloadingTextViews() {
         questionTextView.text = "Write a Question/Term"

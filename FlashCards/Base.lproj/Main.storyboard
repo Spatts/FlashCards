@@ -129,6 +129,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundColorGradientFlashCards" translatesAutoresizingMaskIntoConstraints="NO" id="MpI-QP-Wu8"/>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ufe-se-2jx">
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="asdfasdf" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xLn-nE-eBA">
@@ -192,7 +193,9 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXQ-9c-Ie4">
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="Add"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.29019607843137257" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="addCardButtonTapped:" destination="JeQ-Ku-Q8f" eventType="touchUpInside" id="hFd-8O-S5M"/>
                                 </connections>
@@ -203,7 +206,9 @@
                                     <constraint firstAttribute="width" constant="58" id="LYX-Oq-m6v"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.29019607843137257" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="doneButtonTapped:" destination="JeQ-Ku-Q8f" eventType="touchUpInside" id="Ldr-gt-tok"/>
                                 </connections>
@@ -212,6 +217,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="q83-qe-Jee" firstAttribute="trailing" secondItem="Ufe-se-2jx" secondAttribute="trailing" id="4P0-DZ-Rdg"/>
+                            <constraint firstItem="MpI-QP-Wu8" firstAttribute="trailing" secondItem="zR6-Zq-EYU" secondAttribute="trailing" id="85Y-5X-Z05"/>
                             <constraint firstItem="xXQ-9c-Ie4" firstAttribute="top" secondItem="Ufe-se-2jx" secondAttribute="bottom" constant="8" symbolic="YES" id="BWk-q6-k1Y"/>
                             <constraint firstItem="Ufe-se-2jx" firstAttribute="centerX" secondItem="xXQ-9c-Ie4" secondAttribute="centerX" id="Hz9-3s-VQM"/>
                             <constraint firstItem="Ufe-se-2jx" firstAttribute="leading" secondItem="d4j-2D-Otv" secondAttribute="leadingMargin" id="JPt-NM-Lsz"/>
@@ -220,10 +226,13 @@
                             <constraint firstItem="zR6-Zq-EYU" firstAttribute="bottom" secondItem="5rB-xZ-6bl" secondAttribute="top" id="Zzj-el-2dw"/>
                             <constraint firstItem="q83-qe-Jee" firstAttribute="baseline" secondItem="xXQ-9c-Ie4" secondAttribute="baseline" id="bKS-aY-fHR"/>
                             <constraint firstItem="zR6-Zq-EYU" firstAttribute="leading" secondItem="d4j-2D-Otv" secondAttribute="leading" id="c9I-Pb-os5"/>
+                            <constraint firstItem="MpI-QP-Wu8" firstAttribute="top" secondItem="d4j-2D-Otv" secondAttribute="top" id="dAO-xL-2NY"/>
                             <constraint firstItem="Ufe-se-2jx" firstAttribute="top" secondItem="74u-Q9-tpj" secondAttribute="bottom" constant="11" id="dcq-ME-UhA"/>
                             <constraint firstItem="Ufe-se-2jx" firstAttribute="leading" secondItem="d4j-2D-Otv" secondAttribute="leadingMargin" id="gzw-3y-DF3"/>
+                            <constraint firstItem="MpI-QP-Wu8" firstAttribute="leading" secondItem="zR6-Zq-EYU" secondAttribute="leading" id="hrW-Ht-x8F"/>
                             <constraint firstAttribute="trailing" secondItem="zR6-Zq-EYU" secondAttribute="trailing" id="ka9-Wt-iBr"/>
                             <constraint firstItem="Ufe-se-2jx" firstAttribute="trailing" secondItem="d4j-2D-Otv" secondAttribute="trailingMargin" id="wtS-En-z0R"/>
+                            <constraint firstItem="5rB-xZ-6bl" firstAttribute="top" secondItem="MpI-QP-Wu8" secondAttribute="bottom" constant="269" id="yyk-HM-DvA"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -244,13 +253,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="answerTextView" destination="GFq-NC-buq" id="Wmy-eT-wYP"/>
+                        <outlet property="backgroundImage" destination="MpI-QP-Wu8" id="iih-TA-IWl"/>
                         <outlet property="questionTextView" destination="xLn-nE-eBA" id="4ei-gL-GxM"/>
                         <outlet property="tableView" destination="zR6-Zq-EYU" id="SaS-XB-TJS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="toC-EC-fMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="628" y="1197"/>
+            <point key="canvasLocation" x="628" y="1196.8515742128936"/>
         </scene>
         <!--Title-->
         <scene sceneID="M5I-YL-kd0">
@@ -357,4 +367,7 @@
             <point key="canvasLocation" x="-109" y="463"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backgroundColorGradientFlashCards" width="1500" height="1512"/>
+    </resources>
 </document>
