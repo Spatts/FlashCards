@@ -14,7 +14,9 @@ class CardDetailTableViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0.373, green: 0.420, blue: 0.502, alpha: 1.00)
+        navigationController?.navigationBar.tintColor = UIColor(red: 0.290, green: 0.294, blue: 0.294, alpha: 1.00)
+
         guard let subject = subject else { return }
         
         title = subject.title
