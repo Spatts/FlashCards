@@ -126,6 +126,9 @@ class SubjectListTableViewController: UITableViewController, UISearchResultsUpda
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
         
         if segue.identifier == "addCards" {
             if let viewController = segue.destinationViewController as? AddCardViewController {
